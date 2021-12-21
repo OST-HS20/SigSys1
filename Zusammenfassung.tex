@@ -1,15 +1,19 @@
 % Document information
-\newcommand{\titleinfo}{Zusammenfassung Template}
-\newcommand{\authorinfo}{Name Nachname}
+\newcommand{\titleinfo}{Zusammenfassung SigSys1}
+\newcommand{\authorinfo}{Sandro Pedrett}
 \newcommand{\version}{1.0}
-\newcommand{\versioninfo}{FS21}
+\newcommand{\versioninfo}{HS21}
 % Header
 \include{Template/Header}
+
+\newcommand{\script}[1]{\verweisextern{script}{#1}}
 
 % Document
 \begin{document}
 
-\tableofcontents
-\input{Sections/First Section}
+\input{Sections/Einführung}
+\input{Sections/Signalflussdiagram}
+\input{Sections/Frequenzanalyse}
+\input{Sections/Systeme}
 
 \end{document}
