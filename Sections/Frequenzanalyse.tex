@@ -16,6 +16,68 @@ Die Konvergenzgeschwindigkeit kann im \script{123} nachgelesen werden.
 \includegraphics[width=\columnwidth]{Images/fourier_eigenschaten}
 Weitere Eigenschaften sind im Skript auf Seite \script{124} zufinden.
 
+\subsubsection{Symmetrie}
+\textbf{ACHTUNG:} Gilt nur für $\mathbb{R}$ Fourierreihe! In $\mathbb{C}$ Reihe darf nicht über die halbe Periode Integriert und das Resultat verdoppelt werden! 
+~\\
+~\\
+\noindent Für alle \textbf{geraden} (Achsensymmetrisch) T-periodische Funktionen ($f(t) = f(-t)$)  gilt $b_n = 0$ und für $a_n$ gilt:
+\[
+a_n = \frac{4}{T}\int_{0}^{\frac{T}{2}}f(t) \cdot \cos(n\omega t)dt
+\]
+
+\noindent Ist die Funktion \textbf{ungerade} (Punktsymmetrisch) ($f(-t) = -f(t)$) dann gilt $a_n = 0$ und für $b_n$:
+\[
+b_n = \frac{4}{T}\int_{0}^{\frac{T}{2}}f(t) \cdot \sin(n\omega t)dt 
+\]
+
+
+\subsubsection{Eigenschaften}
+Einige wichtige Eigenschaften, weitere sind im \script{24}\\
+\noindent\textbf{Funktionen}
+\begin{align*}
+	\delta(t) &\transform 1(\omega) \\
+	u(t) &\transform \frac{1}{j\omega} \quad\text{(Einheitssprung)}\\
+	\text{rect}_{-\frac{1}{2},\frac{1}{2}}(t) &\transform \sinc\left(\frac{\omega}{2}\right) \\
+	\cos(\omega_0 t) &\transform \pi\left[\delta(\omega + \omega_0) + \delta(\omega - \omega_0)\right] \\
+	\sin(\omega_0 t) &\transform j\pi\left[\delta(\omega + \omega_0) - \delta(\omega - \omega_0)\right]
+\end{align*}
+
+\noindent\textbf{Vertauschung}
+\begin{align*}
+	X(t) \transform 2\pi \cdot x(\-\omega)
+\end{align*}
+
+\noindent\textbf{Verschiebung im Zeitbereich}
+\begin{align*}
+	x(t - t_0) \transform X(\omega) \cdot e^{-j\omega t_0} 
+\end{align*}
+
+\noindent\textbf{Verschiebung im Frequenzbereich}
+\begin{align*}
+	x(t) \cdot e^{j\omega_0 t} \transform X(\omega - \omega_0)
+\end{align*}
+
+\noindent\textbf{Horizontale Streckung}
+\begin{align*}
+	x(\alpha \cdot t) \transform \frac{1}{|\alpha|}X\left(\frac{\omega}{\alpha}\right)
+\end{align*}
+
+\noindent\textbf{Modulationssatz}
+\begin{align*}
+	A_c \cdot x(t) \cdot \cos(\omega_0t) &\transform \frac{A_c}{2}\left[X(\omega - \omega_0) + X(\omega + \omega_0)\right] \\
+	A_c \cdot x(t) \cdot \sin(\omega_0t) &\transform \frac{A_c}{2j}\left[X(\omega - \omega_0) - X(\omega + \omega_0)\right]
+\end{align*}
+
+\noindent\textbf{Differentation}
+\begin{align*}
+	\frac{dx}{dt}(t) \transform j\omega \cdot X(\omega)
+\end{align*}
+
+\noindent\textbf{Integration}
+\begin{align*}
+	\int_{-\infty}^{t}x(\tau)d\tau \transform X(\omega)\cdot \left(\frac{1}{j\omega} + \pi \delta(\omega)\right)
+\end{align*}
+
 \subsection{Laplace-Transformation}
 \script{135} Die einseitige Laplace-Transformation transformiert die Zeitdomain in die s-Domain:
 \[

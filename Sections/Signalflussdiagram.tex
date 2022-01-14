@@ -32,7 +32,21 @@ H_{ij} = \frac{\sum_{k} P_{k}\cdot \Delta_k}{\Delta}
 $\Delta_k$: \textbf{Kofaktor} des $k$-ten Pfades; 1 - (Summe aller Schleifen die $P_k$ nicht berühren) + (Summe aller Produkte zweier Schleifen, die $P_k$ und sich selbst nicht berühren) - (Summe aller Produkte dreier Schleifen, die $P_k$ und sich selbst nicht berühren) + $\dots$\\
 $\Delta$: \textbf{Netzwerkdeterminante}; 1 - (Summe aller Schleifen) + (Summe aller Produkte zweier Schleifen, die sich nicht berühren) - (Summe aller Produktedreier Schleifen, die sich nicht berühren) + $\dots$\\
 
-\todo{Beispiel}
+\noindent\textbf{Beispiel}:
+SFD von folgender Schaltung:\\
+\includegraphics[width=\columnwidth]{Images/sfd_beispiel_adv}
+Ergibt folgendes SFD\\
+\includegraphics[width=\columnwidth]{Images/sfd_beispiel_adv1}
+Darus kann nun die Übertragungsfunktion $H_{x,y}(s)$ berechnet werden
+\begin{align*}
+	H_{x,y}(s) &= \frac{\frac{1}{R_1+sL_1} \frac{1}{sC}\frac{1}{sL_2}R_2}{1-\left(\frac{-1}{R_1+sL_1}\frac{1}{sC}+\frac{-1}{sL_2}\frac{1}{sC}+\frac{-1}{sL_2}R2\right)+\frac{-1}{R_1+sL}\frac{1}{sC}\frac{-R_2}{sL_2}}
+\end{align*}
+
+\noindent\textbf{Hinweis für Elektro-Komponenten}
+\begin{align*}
+	\text{Kondensator}: \qquad U = \frac{1}{j\omega C}I \\
+	\text{Induktion}: \qquad U = j\omega L I \\
+\end{align*}
 
 \subsection{Reduktionsregeln}
 \noindent\textbf{Regel 1: Kettentransformation}\\

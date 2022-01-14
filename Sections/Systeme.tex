@@ -22,7 +22,7 @@
 Beispiel: $y(t) = e^tx(t)$ ist instabel, linear und zeitvarient. $y(t)t = \frac{x^4(t)}{1000}$ ist BIBO-stabil, nicht linear und zeitvariant.
 \\ ~\\
 \textbf{Asymptotische Stabilität}\\ \script{178}
-Ein LTI-System ist asymptotisch stabil, wenn seine Impulsantwort asymptotische gegen Null abklingt d.H. $\lim\limits_{t\rightarrow\infty}h(t) = 0$.
+Ein LTI-System ist asymptotisch stabil, wenn seine Impulsantwort asymptotische gegen Null abklingt d.H. $\lim\limits_{t\rightarrow\infty}h(t) = 0$. Dabei sind passive Netzwerk immer stabil.
 
 \begin{center}
 \includegraphics[width=0.4\columnwidth]{Images/stabilität}
@@ -73,7 +73,7 @@ Der Amplitudengang $|H(jw)| = \frac{1}{\sqrt{(1-\omega^2)^2 + (0.2\omega)^2}}$. 
 
 Die Gruppenlaufzeit kann durch Ableiten von $\frac{-d\theta(\omega)}{d\omega}$ bestimmt werden
 \begin{align*}
-	\tau_G(\omega) &= \frac{-d\theta(\omega)}{d\omega} \xrightarrow{\arctan'(x) = \frac{1}{1+x^2}} \frac{-1}{1 + \left(\frac{0.2\omega}{1 - \omega^2}\right)^2} \cdot \overbrace{\frac{0.2(1-\omega^2) + 0.4\omega^2}{(1 - \omega^2)^2}}^\text{Innere Ableitung} \\
+	\tau_G(\omega) &= \frac{-d\theta(\omega)}{d\omega} \xRightarrow[= \frac{1}{1+x^2}]{\arctan'(x)} \frac{-1}{1 + \left(\frac{0.2\omega}{1 - \omega^2}\right)^2} \cdot \overbrace{\frac{0.2(1-\omega^2) + 0.4\omega^2}{(1 - \omega^2)^2}}^\text{Innere Ableitung} \\
 	&= -\frac{0.2(1+\omega^2)}{1-1.96\omega^2 + \omega^4}
 \end{align*}
 
@@ -91,3 +91,7 @@ Die Verschiebung kann mit $\omega = 1$ (weil Trägersignal $\sin(1\cdot t)$ ist)
 \[
 k = \sqrt{\frac{U^2_2 + U^2_3 + \dots + U_n^2}{U^2_1 + U^2_3 + \dots + U_n^2}}
 \]
+Er Beschreibt die nichtlinearen Verzerrungen eines Systems.
+
+\subsection{Kaskadierung}
+\includegraphics[width=\columnwidth]{Images/systeme}
