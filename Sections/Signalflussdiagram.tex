@@ -32,7 +32,7 @@ H_{ij} = \frac{\sum_{k} P_{k}\cdot \Delta_k}{\Delta}
 $\Delta_k$: \textbf{Kofaktor} des $k$-ten Pfades; 1 - (Summe aller Schleifen die $P_k$ nicht berühren) + (Summe aller Produkte zweier Schleifen, die $P_k$ und sich selbst nicht berühren) - (Summe aller Produkte dreier Schleifen, die $P_k$ und sich selbst nicht berühren) + $\dots$\\
 $\Delta$: \textbf{Netzwerkdeterminante}; 1 - (Summe aller Schleifen) + (Summe aller Produkte zweier Schleifen, die sich nicht berühren) - (Summe aller Produktedreier Schleifen, die sich nicht berühren) + $\dots$\\
 
-\noindent\textbf{Beispiel}:
+\noindent\textbf{Beispiel 1}:
 SFD von folgender Schaltung:\\
 \includegraphics[width=\columnwidth]{Images/sfd_beispiel_adv}
 Ergibt folgendes SFD\\
@@ -44,10 +44,21 @@ Darus kann nun die Übertragungsfunktion $H_{x,y}(s)$ berechnet werden
 
 \noindent\textbf{Hinweis für Elektro-Komponenten}
 \begin{align*}
-	\text{Kondensator}: \qquad U = \frac{1}{j\omega C}I \\
-	\text{Induktion}: \qquad U = j\omega L I \\
+	\text{Kondensator}: \qquad U = \frac{1}{s C}I \\
+	\text{Induktion}: \qquad U = s L I \\
 \end{align*}
 
+\noindent\textbf{Beispiel 2}: Es können für einfachere Netzwerke auch die Impedanzen berechnet werden und so die Übertragungsfunktion bestimmt werden:\\
+\begin{center}
+	\includegraphics[width=0.8\columnwidth]{Images/sfd_beispiel_adv2}
+\end{center}
+\begin{align*}
+	H(s) &= \frac{z}{sL + z} \cdot \frac{sL}{R + sL}  \qquad z = \frac{1}{sC + \frac{1}{r+ sL}}\\
+	&= \frac{sL}{s^3L^2C + s^2RLC + s2L + R}
+\end{align*}
+
+
+\newpage
 \subsection{Reduktionsregeln}
 \noindent\textbf{Regel 1: Kettentransformation}\\
 \script{59} Die gesamte übertragung einer Kaskade von Zweigen (d.h. einem Pfad) ist gleich dem Produkt der einzelnen Transmittanzen.\\
@@ -131,8 +142,7 @@ H_{ij} = \frac{\sum_{k}P_k\cdot\Delta_k}{\Delta}
 $P_k \Rightarrow$ Vorwärtspfad $k$ (bezogen auf 1 Eingang)\\
 $\Delta_k \Rightarrow $ 1 - (Summe alle Schleifen die $P_k$ nicht berühren) + (Summe aller Produkte zweier Schleifen, die $P_k$ und sich selbst nicht berührenn) - (Summe aller Produkte dreier Schleifen, die $P_k$ und sich selbst nicht berührenn) + $\dots$\\
 $\Delta \Rightarrow $ 1 - (Summe alle Schleifen) + (Summe aller Produkte zweier Schleifen, die sich nicht berühren) - (Summe aller Produkte dreier Schleifen, die sich nicht berühren) + $\dots$\\
-
-\textbf{Beispiel}\\
+~\\ \textbf{Beispiel}\\
 \includegraphics[width=\columnwidth]{Images/sfd_beispiel}
 Die UTF zwischen $x_1$ und $x_4$ ist mit Mason's Regel:
 \[
@@ -146,7 +156,3 @@ Die Ordnung kann durch die Anzahl der aufgetrennten Knoten bestimmen werden, bis
 
 \subsection{SFD von Operationsverstärker}
 \includegraphics[width=\columnwidth]{"./Images/sfd_op"}
-
-
-\subsection{LTI Zusammensetzen}
-Serien-Schaltungen werden multipliziert (Matlab: \textit{series(s1, s2)}). Parallel-Schaltung werden addiert/subtrahiert (Matlab: \textit{parallel(s1, s2)}). Rückkopplung nur mit (Matlab: \textit{feedback(s1, s2,+1)})

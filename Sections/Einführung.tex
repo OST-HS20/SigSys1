@@ -31,10 +31,10 @@ Signale lassen sich in 3 Klassen oder keine davon einteilen. Alle beschränkten 
 Linearer Mittelwert (Signal Klasse 2a): \[\overline{X} = X_0 = \frac{1}{T}\int\limits_{-T/2}^{T/2}x(t)dt\]
 Quadratischer Mittelwert (Signal Klasse 2a) \textbf{Leistung}: \[X^2 =  \frac{1}{T}\int\limits_{-T/2}^{+T/2}\left|x(t)\right|^2dt\] 
 Effektivwert (RMS): \[X_{eff} = X_{rms} = \sqrt{X^2}\] 
-Varianz: \[ \var(x) =  \sigma^2 = \frac{1}{T}\int\limits_{-T/2}^{+T/2}(x(t) - X_0)^2dt \]
+Varianz: \[ \var(x) =  \sigma^2 = \frac{1}{T}\int\limits_{-T/2}^{+T/2}(x(t) - \overline{X})^2dt \]
 Standardabweichung: \[ \sigma = \sqrt{Var(x)}\]
 Gleichung: 
-\[X^2 = \var(|x|) + |X_0|^2\]
+\[X^2 = \var(|x|) + |\overline{X}|^2\]
 
 \subsection{Funktionen}
 \subsubsection{Autokorrelationsfunktion (AKF)}\script{8}
@@ -86,6 +86,14 @@ y(t) = \int\limits_{-\infty}^{\infty}f(\tau)g(t - \tau)d\tau = f(t) * g(t)
 \]
 Tips zur visuellen Faltung: Rechte Funktion $g$ an y-Achse spiegeln und dann verschieben von links nach Rechts. Zu jedem Zeitpunkt ist die Fläche der überlappung mit $f$ der Ausgang $y$
 	\includegraphics[width=\linewidth,keepaspectratio=true]{Images/faltung}
+
+\noindent\textbf{Maximum einer Faltung}
+Das Maximum der Faltung ist erreicht, wenn sich die Flächen maximal schneiden.
+\includegraphics[width=\columnwidth]{Images/faltung_maxi}
+\[
+\max = 2\cdot \int_{0}^{1}6x \cdot x \cdot dx = \left.12\frac{x^3}{3}\right|_0^1 = 4
+\]
+
 
 \subsubsection{Sprungfunktion $u(t)$}\script{17}
 \begin{center}

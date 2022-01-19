@@ -98,3 +98,44 @@ A_{ij} = \frac{1}{(n_i - j)!}\frac{\partial^{n_i-j}}{\partial s^{n_i -j}}[(s-{p_
 
 \subsubsection{Eigenschaften}
 \script{136}
+
+
+\subsection{DGL}
+\textbf{Beispiel} $\ddot{u}(t) + \dot{u}(t) + u(t) = \sigma(t)\sin(2t)$ mit Anfang $u(0) = 0$ und $\dot{u}(0) = 0$
+\[\dot{u}(t) \transform sU(s) - u(0+) \text{ und } \ddot{u}(t) \transform s^2U(s) - sU(0+) - \dot{u}(0+)\]
+Dabei werden die Anfangswerte mit Limes identifizert zB: $u(0+) = \lim\limits_{t\rightarrow0+}u(t) = u(0) = 0$.
+\[ \sigma(t)\sin(2t) = \frac{2}{s^2 + 2^2} \]
+Nun wird die DGL in den Bildbereich transformiert.
+\begin{align*}
+	s^2U(s) + sU(s) + U(s) &= \frac{2}{s^2 + 2^2} \\
+	U(s) &= \frac{2}{(s^2 + 4)(s^2 + s + 1)}
+\end{align*}
+Mittels PBZ kann dies wieder in den Zeitbereich transformiert werden.
+\begin{align*}
+	\frac{2}{(s^2 + 4)(s^2 + s + 1)} = \frac{as +b}{s^2 + 4}+\frac{cs + d}{s^2 + s + 1} \quad | \cdot HN \\
+	2 = (a + c)s^3 + (a+b+d)s^2 + (a+b+4c)s + b + 4d
+\end{align*}
+Daraus lässt sich das LGS herleiten und die Parameter mit Koeffizientenvergleich bestimmen.
+\[
+\begin{matrix}
+	a &  &   & + & c  &    &     & = 0 \\
+	a &+ & b & + &    & +  & d   &= 0 \\
+	a &+ & b & + & 4c &    &     & = 0 \\
+	&  & b &   &    & +  & 4d  & = 2\\
+\end{matrix} \qquad\xRightarrow[]{}\qquad
+\begin{matrix}
+	a &= \frac{-2}{13} \\
+	b &=\frac{-6}{13} \\
+	c &=\frac{2}{13} \\
+	d &= \frac{8}{13}\\
+\end{matrix}
+\]
+Zurück in den Zeitbereich transformieren mittels Umformungen (hier Quadratische Ergänzung $s^2 + s +1 = (s+\frac{1}{2})^2 + \frac{3}{4}$) und Laplace-Tabelle.
+\begin{align*}
+	U(s) =& -\frac{2}{13}\cdot\overbrace{\frac{s}{s^2 +2^2}}^{\cos(2t)} -\frac{2}{13}\cdot\frac{3}{2}\cdot\overbrace{\frac{2}{s^2 + 2^2}}^{\sin(2t)} \\
+	& + \frac{2}{13}\cdot\underbrace{\frac{s + \frac{1}{2}}{(s+\frac{1}{2})^2 + \frac{3}{4}}}_{\cos\left(\frac{\sqrt{3}}{2}t\right)e^{-\frac{t}{2}}} + \frac{2}{13}\cdot\frac{7\sqrt{3}}{3}\cdot\underbrace{\frac{\frac{\sqrt{3}}{2}}{(s+\frac{1}{2})^2 + \frac{3}{4}}}_{\sin\left(\frac{\sqrt{3}}{2}t\right)e^{-\frac{t}{2}}} \\
+\end{align*}
+\begin{align*}
+	u(t) = \sigma(t)&\left(-\frac{2}{13}\cos(2t) -\frac{3}{13}\sin(2t)\right) \\
+	+ \sigma(t)&\left( \frac{2}{13}\cos\left(\frac{\sqrt{3}}{2}t\right)e^{-\frac{t}{2}} + \frac{14\sqrt{3}}{39}\sin\left(\frac{\sqrt{3}}{2}t\right)e^{-\frac{t}{2}}\right)
+\end{align*}
