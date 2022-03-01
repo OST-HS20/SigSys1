@@ -96,3 +96,21 @@ Er Beschreibt die nichtlinearen Verzerrungen eines Systems.
 \subsection{Kaskadierung}
 Serien-Schaltungen werden multipliziert (Matlab: \textit{series(s1, s2)}). Parallel-Schaltung werden addiert/subtrahiert (Matlab: \textit{parallel(s1, s2)}). Rückkopplung nur mit (Matlab: \textit{feedback(s1, s2,+1)})
 \includegraphics[width=\columnwidth]{Images/systeme}
+
+\subsection{Übertragung von stochastischen Signalen}
+\script{193}
+Bei stochastischen Signalen können nur Leistungen berechnet werden, da das Signal $x(t)$ zufällig ist. Die Kreuzkorrelationsfunktion $\varphi_{xy}(\tau)$ eines stochastischen Signals ist
+\[
+\varphi_{xy}(\tau) = h(\tau)*\varphi_{xx}(\tau) \transform \varPhi(j\omega) = H(j\omega)\cdot\varPhi(j\omega)
+\]
+
+\noindent Die Leistungsdichtespektrum $\varPhi_{yy}(j\omega)$ vom stochastischen Signal $x$
+\[
+\varPhi_{yy}(j\omega) = \left|H(j\omega)\right|^2\varPhi_{xx}(j\omega)
+\]
+kann durch Rücktransformation die Leistung von $y$ erhalten werden
+\begin{align*}
+	\varPhi_{yy}(j\omega) &\itransform \varphi_{yy}(\tau) \\
+	\varphi_{yy}(\tau) &= \frac{1}{2\pi}\int_{-\infty}^{\infty}\left|H(j\omega)\right|^2\varPhi_{xx}(j\omega)e^{j\omega\tau}d\omega\\
+	Y^2 = \varphi_{yy}(0) &= \frac{1}{2\pi}\int_{-\infty}^{\infty}\left|H(j\omega)\right|^2\varPhi_{xx}(j\omega)d\omega
+\end{align*}
